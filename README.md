@@ -1,4 +1,4 @@
-# HR_Managemennt
+# HR_Managemennt慧心人力资源管理系统
 java web开发慧心人力资源管理系统
 
 此项目基于Jsp+Servlet+JavaBean+Mysql技术开发
