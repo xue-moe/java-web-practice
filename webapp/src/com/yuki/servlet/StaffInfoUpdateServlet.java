@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yuki.dao.Staff_Jdbc;
 import com.yuki.staff.*;
 /**
- * ÐÞ¸ÄÔ±¹¤¿ØÖÆÆ÷
+ * ï¿½Þ¸ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author Ryosetsu_Tsan
  *
  */
@@ -20,7 +20,7 @@ import com.yuki.staff.*;
 public class StaffInfoUpdateServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//²éÑ¯ÐèÒª±à¼­µÄÐÅÏ¢
+		//ï¿½ï¿½Ñ¯ï¿½ï¿½Òªï¿½à¼­ï¿½ï¿½ï¿½ï¿½Ï¢
 		int id=Integer.parseInt(req.getParameter("id"));
 		Staff staff=new Staff_Jdbc().find(id);
 		req.setAttribute("STA", staff);
@@ -29,7 +29,7 @@ public class StaffInfoUpdateServlet extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//½ÓÊÕ²ÎÊý
+		//ï¿½ï¿½ï¿½Õ²ï¿½ï¿½ï¿½
 		Staff staff=new Staff();
 		staff.setId(Integer.parseInt(req.getParameter("id")));
 		staff.setName(new String(req.getParameter("name").getBytes("ISO-8859-1"),"UTF-8"));

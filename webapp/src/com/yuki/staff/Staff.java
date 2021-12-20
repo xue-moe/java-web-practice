@@ -1,6 +1,14 @@
 package com.yuki.staff;
 
-
+// 员工类
+/**
+ * 员工类
+ * id 自增编号
+ * name 姓名
+ * gender 性别
+ * birthday 出生年月
+ * phone 电话
+ */
 public class Staff {
     private int id;
     private String name;

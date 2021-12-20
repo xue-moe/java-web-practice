@@ -2,6 +2,7 @@
 java web开发慧心人力资源管理系统
 
 此项目基于Jsp+Servlet+JavaBean+Mysql技术开发
+与数据库的通信为JDBC
 开发一套B/S结构人力资源管理系统，对员工信息进行管理，主要功能:
 首页模块
 ![image](https://user-images.githubusercontent.com/42118836/110237996-f9951700-7f79-11eb-8827-c3b10ea6080a.png)
