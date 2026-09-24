@@ -1,6 +1,6 @@
 # 项目 01：员工档案管理
 
-可先打开 [在线交互演示](https://xue-moe.github.io/HR_Management/#employees)，体验完整流程。Java Web 后端实现位于仓库的 src/main/。
+可先打开 [在线交互演示](https://xue-moe.github.io/java-web-practice/#employees)，体验完整流程。Java Web 后端实现位于仓库的 src/main/。
 
 **状态：完整示范项目** · 预计练习时间：半天至一天 · 难度：入门
 

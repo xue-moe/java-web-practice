@@ -2,7 +2,7 @@
 
 **状态：可操作演示 + Java 后端练习题** · 预计练习时间：1–2 天 · 难度：中级
 
-先打开 [在线交互演示](https://xue-moe.github.io/HR_Management/#grades)，试试成绩录入、修改、删除和统计。演示使用浏览器存储；下方步骤引导你把这些功能实现为 Servlet/JDBC 应用。
+先打开 [在线交互演示](https://xue-moe.github.io/java-web-practice/#grades)，试试成绩录入、修改、删除和统计。演示使用浏览器存储；下方步骤引导你把这些功能实现为 Servlet/JDBC 应用。
 
 ## 题目
 
