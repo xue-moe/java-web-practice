@@ -1,0 +1,33 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: hrmanagement
+      MYSQL_USER: hr_app
+      MYSQL_PASSWORD: hr_app_local
+      MYSQL_ROOT_PASSWORD: local_root_only
+    ports:
+      - "3307:3306"
+    volumes:
+      - hr_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-plocal_root_only"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://db:3306/hrmanagement?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+      DB_USER: hr_app
+      DB_PASSWORD: hr_app_local
+    ports:
+      - "8080:8080"
+
+volumes:
+  hr_data:

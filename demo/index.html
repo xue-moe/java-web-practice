@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="三个适合 Java Web 入门的交互式项目演示">
+  <title>Java Web 项目练习册 · 演示</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./">Java Web 项目练习册</a><span class="topnote">三个小项目 · 打开即用</span></header>
+  <main class="shell">
+    <section class="intro"><p class="eyebrow">JAVA WEB · HANDS-ON PROJECTS</p><h1>从需求开始，做出完整小应用。</h1><p>试用员工档案、图书借阅和课程成绩三个练习。观察表单、列表、校验和统计，再顺着仓库里的说明把浏览器演示逐步换成 Servlet、JDBC 与 MySQL。</p><div class="notice">演示数据保存在当前浏览器中，只用于学习。请勿填写真实员工、读者或学生信息。</div></section>
+    <nav class="tabs" aria-label="选择项目"><a class="tab active" href="#employees" data-tab="employees">01 员工档案</a><a class="tab" href="#books" data-tab="books">02 图书借阅</a><a class="tab" href="#grades" data-tab="grades">03 课程成绩</a></nav>
+    <section class="panel active" id="employees" data-panel="employees">
+      <div class="panel-head"><div><p class="eyebrow">CRUD · FORM VALIDATION</p><h2>员工信息管理</h2><p>新增、编辑、删除员工，并按姓名、部门或岗位查找。</p></div></div>
+      <form class="form" id="employee-form"><input id="employee-id" type="hidden">
+        <div class="field"><label for="employee-name">姓名</label><input id="employee-name" required maxlength="30" placeholder="例如：林晓"></div>
+        <div class="field"><label for="employee-department">部门</label><select id="employee-department"><option>技术部</option><option>产品部</option><option>设计部</option><option>运营部</option></select></div>
+        <div class="field"><label for="employee-role">岗位</label><input id="employee-role" required maxlength="40" placeholder="例如：后端开发"></div>
+        <div class="field"><label for="employee-date">入职日期</label><input id="employee-date" type="date" required></div>
+        <div class="field"><label for="employee-salary">月薪（元）</label><input id="employee-salary" type="number" min="0" step="100" required placeholder="8000"></div>
+        <div><button class="btn" type="submit">保存员工</button> <button class="btn alt" id="employee-cancel" type="button" hidden>取消编辑</button></div>
+      </form>
+      <div class="toolbar"><div class="stats"><div class="stat">员工人数<strong id="employee-count">0</strong></div><div class="stat">部门数量<strong id="employee-departments">0</strong></div></div><input class="search" id="employee-search" type="search" placeholder="搜索姓名、部门或岗位"></div>
+      <div class="table-wrap"><table><thead><tr><th>姓名</th><th>部门</th><th>岗位</th><th>入职日期</th><th>月薪</th><th>操作</th></tr></thead><tbody id="employee-rows"></tbody></table><div class="empty" id="employee-empty" hidden>没有匹配记录。</div></div>
+      <p class="hint">实现提示：把员工字段设计成 JavaBean；Servlet 处理表单；DAO 使用 PreparedStatement 执行参数化 SQL。</p>
+    </section>
+    <section class="panel" id="books" data-panel="books">
+      <div class="panel-head"><div><p class="eyebrow">INVENTORY · BUSINESS RULES</p><h2>图书借阅管理</h2><p>维护图书库存，体验借出与归还时的数量约束。</p></div></div>
+      <form class="form" id="book-form"><input id="book-id" type="hidden">
+        <div class="field"><label for="book-title">书名</label><input id="book-title" required maxlength="80" placeholder="例如：数据库系统概论"></div>
+        <div class="field"><label for="book-author">作者</label><input id="book-author" required maxlength="50" placeholder="作者姓名"></div>
+        <div class="field"><label for="book-category">分类</label><select id="book-category"><option>计算机</option><option>文学</option><option>科学</option><option>其他</option></select></div>
+        <div class="field"><label for="book-total">馆藏册数</label><input id="book-total" type="number" min="1" max="999" value="1" required></div>
+        <div><button class="btn" type="submit">保存图书</button> <button class="btn alt" id="book-cancel" type="button" hidden>取消编辑</button></div>
+      </form>
+      <div class="toolbar"><div class="stats"><div class="stat">图书种类<strong id="book-count">0</strong></div><div class="stat">可借册数<strong id="book-available-total">0</strong></div></div><input class="search" id="book-search" type="search" placeholder="搜索书名、作者或分类"></div>
+      <div class="table-wrap"><table><thead><tr><th>书名</th><th>作者</th><th>分类</th><th>馆藏</th><th>可借</th><th>操作</th></tr></thead><tbody id="book-rows"></tbody></table><div class="empty" id="book-empty" hidden>没有匹配记录。</div></div>
+      <p class="hint">实现提示：借出操作必须保证库存大于零；正式版应在一个数据库事务中写入借阅记录并扣减库存。</p>
+    </section>
+    <section class="panel" id="grades" data-panel="grades">
+      <div class="panel-head"><div><p class="eyebrow">VALIDATION · SUMMARY</p><h2>课程成绩管理</h2><p>录入和修改成绩，查看平均分与及格人数。</p></div></div>
+      <form class="form" id="grade-form"><input id="grade-id" type="hidden">
+        <div class="field"><label for="grade-student">学生姓名</label><input id="grade-student" required maxlength="40" placeholder="例如：许安"></div>
+        <div class="field"><label for="grade-course">课程</label><select id="grade-course"><option>程序设计基础</option><option>数据库原理</option><option>计算机网络</option><option>数据结构</option></select></div>
+        <div class="field"><label for="grade-score">成绩（0–100）</label><input id="grade-score" type="number" min="0" max="100" step="0.5" required placeholder="85"></div>
+        <div><button class="btn" type="submit">保存成绩</button> <button class="btn alt" id="grade-cancel" type="button" hidden>取消编辑</button></div>
+      </form>
+      <div class="toolbar"><div class="stats"><div class="stat">记录数<strong id="grade-count">0</strong></div><div class="stat">平均分<strong id="grade-average">0</strong></div><div class="stat">及格人数<strong id="grade-pass">0</strong></div></div><input class="search" id="grade-search" type="search" placeholder="搜索学生或课程"></div>
+      <div class="table-wrap"><table><thead><tr><th>学生</th><th>课程</th><th>成绩</th><th>结果</th><th>操作</th></tr></thead><tbody id="grade-rows"></tbody></table><div class="empty" id="grade-empty" hidden>没有匹配记录。</div></div>
+      <p class="hint">实现提示：成绩字段限制在 0–100；用 AVG 和条件聚合计算课程统计，空课程也要显示清楚的空状态。</p>
+    </section>
+    <p class="footer">Java Web 项目练习册 · 浏览器演示使用 localStorage 保存样例数据</p>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

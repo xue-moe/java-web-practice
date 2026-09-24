@@ -1,0 +1,7 @@
+target/
+**/build/
+*.class
+*.war
+.env
+.DS_Store
+*.log
